@@ -1,26 +1,59 @@
 import React from 'react'
-
+import { useParams } from 'react-router-dom';
+import { useProductDetailsQuery } from '../redux/api/productAPI';
+import { addToCart } from "../redux/reducer/cartReducer";
+import { CartItem } from "../types/types";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 const OrderDetails = () => {
+
+  const params = useParams();
+  
+
+  const { data } = useProductDetailsQuery(params.id!);
+
+  const { price, photo, name, stock, category } = data?.product || {
+    photo: "",
+    category: "",
+    name: "",
+    stock: 0,
+    price: 0,
+  };
+  const dispatch = useDispatch();
+  const oldprice=price-100;
+  const addToCartHandler = (cartItem: CartItem) => {
+    if (cartItem.stock < 1) return toast.error("Out of Stock");
+    dispatch(addToCart(cartItem));
+    toast.success("Added to cart");
+  };
   return (
     <div className="product-card">
     <div className="badge">Hot</div>
     <div className="product-tumb">
-    <img src="https://images.unsplash.com/photo-1473188588951-666fce8e7c68?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGVhdGhlciUyMGJhZ3xlbnwwfHwwfHx8MA%3D%3D" alt=""/>
+    <img src={photo} alt=""/>
     </div>
     <div className="product-details">
-    <span className="product-catagory">Women, bag</span>
+    <span className="product-catagory">{category}</span>
     <h4>
-    <a href="#">Women leather bag</a>
+    <a href="#">{name}</a>
     </h4>
     <p>Awesome women bag for all type of women buy now offer limited.</p>
     <div className="product-bottom-details">
     <div className="product-price">
-    <small>$100</small>$230.99
+    <small>{oldprice}</small>{price}
     </div>
     <div className="product-links">
 
     <a href="#">
-    <i className="fa fa-shopping-cart"></i>
+    <i className="fa fa-shopping-cart" onClick={
+      ()=>addToCartHandler({
+        productId: params.id!,
+              price,
+              name,
+              photo,
+              stock,quantity:1
+      })
+    }></i>
     </a>
     </div>
     </div>

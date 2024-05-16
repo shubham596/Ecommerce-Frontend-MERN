@@ -26,7 +26,7 @@ const ProductCard = ({
 <div className="img-area">
 <img src={`${photo}`} alt={name} />
         <div className="overlay">
-         <Link to={'/order/234234'}> <button className="view-details">View Details</button> </Link>
+         <Link to={`/product/${productId}`}> <button className="view-details">View Details</button> </Link>
         </div>
       </div>
 

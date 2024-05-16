@@ -73,7 +73,7 @@ if(user){
     <Route path="/" element={<Home/>} />
     <Route path="/search" element={<Search/>} />
     <Route path="/cart" element={<Cart/>} />
-    
+    <Route path="/product/:id" element={<OrderDetails/>} />
     {/* Not logged in route  */}
     <Route path="/login" element={<ProtectedRoute isAuthenticated={ user?false:true}>
       <Login/>
@@ -83,7 +83,7 @@ if(user){
     <Route element={<ProtectedRoute isAuthenticated={ user?true:false} />}>
     <Route path="/shipping" element={<Shipping/>} />
     <Route path="/orders" element={<Orders/>} />
-    <Route path="/order/:id" element={<OrderDetails/>} />
+   
     <Route path="/pay" element={<Checkout/>} />
     </Route>
     
