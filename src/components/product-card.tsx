@@ -1,6 +1,6 @@
 import { FaPlus } from "react-icons/fa";
 import { server } from "../redux/store";
-
+import { Link } from "react-router-dom";
 import { CartItem } from "../types/types";
 
 type ProductsProps = {
@@ -26,7 +26,7 @@ const ProductCard = ({
 <div className="img-area">
 <img src={`${photo}`} alt={name} />
         <div className="overlay">
-          <button className="view-details">View Details</button>
+         <Link to={'/order/234234'}> <button className="view-details">View Details</button> </Link>
         </div>
       </div>
 

@@ -85,17 +85,17 @@
   // }
 
   
-.wrapper {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 20px;
-	margin: 6% auto 0;
-}
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 6% auto 0;
+  }
 .single-card {
-	position: ab;
+	position: relative;
 	width: 250px;
-	height: 250px;
+	height: 300px;
 	margin: 15px;
 	box-shadow: 0 2px 20px rgba(107, 100, 100, 0.5);
 	transition: box-shadow 0.3s ease;
@@ -104,13 +104,14 @@
 	border-radius: 15px;
 	transition: all 0.8s ease-in-out;
 }
+
 .single-card:hover {
 	transform: translateY(-10px);
 }
 .img-area {
 	position: relative;
 	width: 100%;
-	height: 100px;
+	height: 150px;
 	overflow: hidden;
 }
 .img-area img {
@@ -165,7 +166,7 @@
 }
 .info h3 {
 	// margin: 15px 0 10px;
-	font-size: 30px;
+	font-size: 15px;
 	font-weight: bold;
 	text-transform: uppercase;
 	font-family: 'Bebas Neue', sans-serif;
