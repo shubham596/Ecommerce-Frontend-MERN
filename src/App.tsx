@@ -125,7 +125,7 @@ if(user){
     </Suspense>
     <Toaster position="bottom-center"/>
 
-<Footer/>
+
       </Router>)
 }
 
