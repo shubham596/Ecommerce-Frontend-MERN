@@ -48,7 +48,7 @@ const Header = ({ user }: PropsType) => {
         <FaShoppingBag /> CART
       </Link></li>
 
-        <li> {user?._id ? (
+        <li> 
         <>
           <button onClick={() => setIsOpen((prev) => !prev)}>
             <FaUser /> PROFILE
@@ -64,17 +64,22 @@ const Header = ({ user }: PropsType) => {
               <Link onClick={() => setIsOpen(false)} to="/orders">
                 Orders
               </Link>
-              <button onClick={logoutHandler}>
-                <FaSignOutAlt /> 
-              </button>
+          
+            {
+              user?._id?( <button   onClick={logoutHandler}>
+               Logout 
+              </button>): (
+        <Link onClick={() => setIsOpen(false)} to={"/login"}>
+         <FaSignInAlt />
+        </Link>
+      )
+            }
+
+             
             </div>
           </dialog>
         </>
-      ) : (
-        <Link to={"/login"}>
-          <FaSignInAlt />
-        </Link>
-      )}</li>
+       </li>
       </ul>
       
      
