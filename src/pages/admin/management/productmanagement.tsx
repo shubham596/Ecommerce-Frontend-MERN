@@ -20,10 +20,11 @@ const Productmanagement = () => {
 
   const { data, isLoading, isError } = useProductDetailsQuery(params.id!);
 
-  const { price, photo, name, stock, category } = data?.product || {
+  const { price, photo, name, stock, category,description } = data?.product || {
     photo: "",
     category: "",
     name: "",
+    description:"",
     stock: 0,
     price: 0,
   };
@@ -32,7 +33,8 @@ const Productmanagement = () => {
   const [stockUpdate, setStockUpdate] = useState<number>(stock);
   const [nameUpdate, setNameUpdate] = useState<string>(name);
   const [categoryUpdate, setCategoryUpdate] = useState<string>(category);
-  const [photoUpdate, setPhotoUpdate] = useState<string>("");
+  const [photoUpdate, setPhotoUpdate] = useState<string>(photo);
+  const [descriptionupdate, setDescriptionupdate] = useState<string>(description);
   
 
   const [updateProduct] = useUpdateProductMutation();
@@ -70,7 +72,8 @@ const formData={
   price:priceUpdate||price,
   stock:stockUpdate||stock,
   category:categoryUpdate||category,
-  photo:photoUpdate||photo
+  photo:photoUpdate||photo,
+  description:descriptionupdate||description
 }
     const res = await updateProduct({
       formData,
@@ -96,6 +99,8 @@ const formData={
       setPriceUpdate(data.product.price);
       setStockUpdate(data.product.stock);
       setCategoryUpdate(data.product.category);
+      setPhotoUpdate(data.product.photo);
+      setDescriptionupdate(data.product.description);
     }
   }, [data]);
 
@@ -153,7 +158,15 @@ const formData={
                     onChange={(e) => setStockUpdate(Number(e.target.value))}
                   />
                 </div>
-
+                <div>
+                  <label>description</label>
+                  <input
+                    type="text"
+                    placeholder="Write something about the product"
+                    value={descriptionupdate}
+                    onChange={(e) => setDescriptionupdate(e.target.value)}
+                  />
+                </div>
                 <div>
                   <label>Category</label>
                   <input

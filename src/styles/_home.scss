@@ -94,7 +94,7 @@
   }
 .single-card {
 	position: relative;
-	width: 250px;
+	width: 280px;
 	height: 300px;
 	margin: 15px;
 	box-shadow: 0 2px 20px rgba(107, 100, 100, 0.5);
@@ -177,3 +177,12 @@
 	font-weight: bold;
 	color: aqua;
 }
+
+.search-product-list{
+  @include flex(row, flex-start, flex-start);
+  flex-wrap: wrap;
+  height: calc(100% - 10rem);
+  overflow-y: auto;
+}
+
+

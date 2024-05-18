@@ -12,7 +12,7 @@ const OrderDetails = () => {
 
   const { data } = useProductDetailsQuery(params.id!);
 
-  const { price, photo, name, stock, category } = data?.product || {
+  const { price, photo, name, stock, category,description } = data?.product || {
     photo: "",
     category: "",
     name: "",
@@ -37,8 +37,9 @@ const OrderDetails = () => {
     <h4>
     <a href="#">{name}</a>
     </h4>
-    <p>Awesome women bag for all type of women buy now offer limited.</p>
+   <p>{description}</p>
     <div className="product-bottom-details">
+ 
     <div className="product-price">
     <small>{oldprice}</small>{price}
     </div>

@@ -11,7 +11,8 @@ import { RootState } from "./redux/store";
 import { getUser } from "./redux/api/userAPI";
 import ProtectedRoute from "./components/protected-route";
 import Footer from "./components/footer";
-
+import { signOut } from "firebase/auth";
+import SingleProduct from "./pages/singleProduct";
 
 
 
@@ -48,6 +49,9 @@ const TransactionManagement = lazy(
 );
 
 const App = () => {
+
+
+
   const { user, loading } = useSelector(
     (state: RootState) => state.userReducer
   );
@@ -88,6 +92,21 @@ if(user){
     </Route>
     
     
+
+
+
+    
+    <Route path="/admin/chart/bar" element={<Barcharts />} />
+      <Route path="/admin/chart/pie" element={<Piecharts />} />
+      <Route path="/admin/chart/line" element={<Linecharts />} />
+      {/* Apps */}
+      <Route path="/admin/app/coupon" element={<Coupon />} />
+      <Route path="/admin/app/stopwatch" element={<Stopwatch />} />
+      <Route path="/admin/app/toss" element={<Toss />} />
+      <Route path="/admin/dashboard" element={<Dashboard />} />
+      <Route path="/admin/product" element={<Products />} />
+
+
     
     {/* admin routes */}
     <Route
@@ -99,18 +118,11 @@ if(user){
         />
       }
     >
-      <Route path="/admin/dashboard" element={<Dashboard />} />
-      <Route path="/admin/product" element={<Products />} />
+   
       <Route path="/admin/customer" element={<Customers />} />
       <Route path="/admin/transaction" element={<Transaction />} />
       {/* Charts */}
-      <Route path="/admin/chart/bar" element={<Barcharts />} />
-      <Route path="/admin/chart/pie" element={<Piecharts />} />
-      <Route path="/admin/chart/line" element={<Linecharts />} />
-      {/* Apps */}
-      <Route path="/admin/app/coupon" element={<Coupon />} />
-      <Route path="/admin/app/stopwatch" element={<Stopwatch />} />
-      <Route path="/admin/app/toss" element={<Toss />} />
+  
     
       {/* Management */}
       <Route path="/admin/product/new" element={<NewProduct />} />

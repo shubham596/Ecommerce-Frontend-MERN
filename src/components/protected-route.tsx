@@ -7,6 +7,7 @@ interface Props {
   adminOnly?: boolean;
   admin?: boolean;
   redirect?: string;
+  redirectadmin?:string;
 }
 
 const ProtectedRoute = ({
@@ -15,6 +16,7 @@ const ProtectedRoute = ({
   adminOnly,
   admin,
   redirect = "/",
+  redirectadmin="/admin/dashboard"
 }: Props) => {
   if (!isAuthenticated) {
     toast.error("please login first");
@@ -22,7 +24,7 @@ const ProtectedRoute = ({
      <Navigate to={redirect} />);
     }
 
-  if (adminOnly && !admin){ toast.error("only admin can access"); return <Navigate to={redirect} />;}
+  if (adminOnly && !admin){ toast.error("only admin can access"); return <Navigate to={redirectadmin} />;}
 
   return children ? children : <Outlet />;
 };

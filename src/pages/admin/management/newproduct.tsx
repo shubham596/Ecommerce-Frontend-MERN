@@ -16,7 +16,7 @@ const NewProduct = () => {
   const [stock, setStock] = useState<number>(1);
   // const [photoPrev, setPhotoPrev] = useState<string>("");
   const [photo, setPhoto] = useState<string>("");
-
+  const [description,setDescription]=useState<string>("");
   const [newProduct] = useNewProductMutation();
   const navigate = useNavigate();
 
@@ -54,6 +54,7 @@ const NewProduct = () => {
       price,
       stock,
       category,
+      description,
       photo
     }
 
@@ -108,6 +109,17 @@ const NewProduct = () => {
                 placeholder="eg. laptop, camera etc"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label>Description</label>
+              <input
+                required
+                type="text"
+                placeholder="Write something about the product"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               />
             </div>
 

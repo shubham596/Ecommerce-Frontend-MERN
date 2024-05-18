@@ -77,6 +77,10 @@
   height: 30px;
   width: 103px;
 }
+// .imageheader{
+//   height: 30px;
+//   width: 103px;
+// }
  
   >ul{  @include flex(row, flex-end, stretch, 7rem);
   list-style: none;}
@@ -104,9 +108,9 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       padding: 10px;
-      width: 100px;
+      width: 130px;
       position: absolute;
-      left: calc(100% - 100px);
+      left: calc(100% - 130px);
       top: 8%;
       > div {
         @include flex(column, flex-start, center, 0.25rem);

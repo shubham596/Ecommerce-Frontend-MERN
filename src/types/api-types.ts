@@ -91,6 +91,7 @@ import {
       category:string;
       price:Number;
       stock:Number;
+      description:string;
       photo:string;
   }
 

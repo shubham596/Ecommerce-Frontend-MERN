@@ -20,6 +20,7 @@ interface PropsType {
 const Header = ({ user }: PropsType) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  
   const logoutHandler = async () => {
     try {
       await signOut(auth);
@@ -32,7 +33,9 @@ const Header = ({ user }: PropsType) => {
 
   return (
     <nav className="header">
+
      <img src="https://png.pngtree.com/png-clipart/20230116/original/pngtree-online-shopping-logo-desing-png-image_8918925.png" alt="logo" />
+    
       
       <ul>
         <li><Link onClick={() => setIsOpen(false)} to={"/"}>
@@ -44,6 +47,7 @@ const Header = ({ user }: PropsType) => {
         <li> <Link onClick={() => setIsOpen(false)} to={"/cart"}>
         <FaShoppingBag /> CART
       </Link></li>
+
         <li> {user?._id ? (
         <>
           <button onClick={() => setIsOpen((prev) => !prev)}>
@@ -51,11 +55,11 @@ const Header = ({ user }: PropsType) => {
           </button>
           <dialog open={isOpen}>
             <div>
-              {user.role === "admin" && (
+              {/* {user.role === "admin" && ( */}
                 <Link onClick={() => setIsOpen(false)} to="/admin/dashboard">
-                  Admin
+                  Dashboard
                 </Link>
-              )}
+              {/* )} */}
 
               <Link onClick={() => setIsOpen(false)} to="/orders">
                 Orders
