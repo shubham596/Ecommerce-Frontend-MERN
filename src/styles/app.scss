@@ -69,21 +69,20 @@
 }
 
   .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
  
->img{
-  height: 30px;
-  width: 103px;
-}
-// .imageheader{
+// >img{
 //   height: 30px;
 //   width: 103px;
 // }
+
  
-  >ul{  @include flex(row, flex-end, stretch, 7rem);
-  list-style: none;}
+//   >ul{  @include flex(row, flex-end, stretch, 1.2rem);
+//   list-style: none;
+// }
+@include flex(row, flex-end, stretch, 1.2rem);
     padding: 1rem;
     background-color: rgb(247 241 249);
     a {
@@ -440,7 +439,7 @@ footer{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px 0px 150px 0px;
+  margin: 20px 0px 50px 0px;
 font-weight: bold;
 user-select: text;
 }
